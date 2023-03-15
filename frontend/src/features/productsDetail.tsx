@@ -1,4 +1,4 @@
-import { useGetAllProductsQuery } from "../../redux/apiSlice";
+import { useGetAllProductsQuery } from "../redux/apiSlice";
 import ProductsList from "../components/productsList";
 export default function ProductsDetails() {
   const { data: products, isLoading, error } = useGetAllProductsQuery();
