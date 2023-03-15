@@ -1,10 +1,43 @@
 import { Input } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { text } from "stream/consumers";
 import Navbar from "../components/navbar";
 export default function Login() {
-  const [email, setEmail] = useState<string>();
-  const [password, setPassword] = useState<string>();
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  //Email
+  const [emailErrorMessage, setEmailErrorMessage] = useState<string>();
+  const [emailError, setEmailError] = useState<boolean>(false);
+
+  //Password
+  const [passwordErrorMessage, setPasswordErrorMessage] = useState<string>();
+  const [passwordError, setPasswordError] = useState<boolean>(false);
+  const validateEmail = () => {
+    console.log("xdf");
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!regex.test(email)) {
+      setEmailErrorMessage("Invalid Email");
+      setEmailError(true);
+    } else {
+      setEmailErrorMessage(undefined);
+      setEmailError(false);
+    }
+  };
+
+  const validatePassword = () => {
+    const regex = /^(?=.*[A-Za-z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{7,}$/;
+    if (password.length < 7) {
+      setPasswordErrorMessage("Password must have minimum 7 characters");
+      setPasswordError(true);
+    } else if (!regex.test(password)) {
+      setPasswordErrorMessage("Password must contain special character");
+      setPasswordError(true);
+    } else {
+      setPasswordErrorMessage(undefined);
+      setPasswordError(false);
+    }
+  };
+
   return (
     <div className="grid md:grid-cols-2  text-black m-0 h-[100vh]">
       {/* Column 1 */}
@@ -31,7 +64,17 @@ export default function Login() {
               className="bg-white border-b-2"
               placeholder="email"
               value={email}
+              isInvalid={emailError}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                validateEmail();
+              }}
             />
+            {emailError ? (
+              <p className="text-red-500 text-sm self-end mt-1">
+                {emailErrorMessage}
+              </p>
+            ) : null}
           </div>
           <div className="flex flex-col">
             <label className="text-sm text-gray-500">Pasword: </label>
@@ -40,9 +83,19 @@ export default function Login() {
               type="password"
               name="password"
               placeholder="password"
-              className="bg-white border-b-2"
+              className={"bg-white border-b-2"}
+              isInvalid={passwordError}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                validatePassword();
+              }}
               value={password}
             />
+            {passwordError ? (
+              <p className="text-red-500 text-sm self-end mt-1">
+                {passwordErrorMessage}
+              </p>
+            ) : null}
             <a
               className="text-sm self-end mt-1 hover:text-red-400"
               href="/login"
