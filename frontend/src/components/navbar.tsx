@@ -1,14 +1,15 @@
 import { useState } from "react";
 import Banner from "../images/banner.jpg";
+import { BsFillBagFill } from "react-icons/bs";
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
   return (
     <>
-      <nav className="relative flex flex-wrap items-center justify-between px-8 py-3 bg-white">
+      <nav className="relative flex flex-wrap items-center justify-between px-8 py-1 bg-white">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <a
-              className="font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-black text-xl"
+              className="font-bold self-center leading-relaxed inline-block m-auto py-2 whitespace-nowrap uppercase text-black text-xl"
               href="#pablo"
             >
               Shoply
@@ -34,8 +35,10 @@ export default function Navbar() {
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
                   href="#pablo"
                 >
-                  <i className="fab fa-twitter text-lg leading-lg text-black opacity-75"></i>
-                  <span className="ml-2">Register</span>
+                  <i className="fab fa-twitter text-lg leading-lg  text-black opacity-75"></i>
+                  <span className="p-1 ">
+                    <BsFillBagFill size={22} />
+                  </span>
                 </a>
               </li>
               <li className="nav-item">
@@ -43,15 +46,30 @@ export default function Navbar() {
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
                   href="#pablo"
                 >
-                  <i className="fab fa-pinterest text-lg leading-lg text-black opacity-75"></i>
-                  <span className="ml-2">Login</span>
+                  <i className=" text-lg leading-lg  text-black opacity-75"></i>
+                  <span className="ml-2 p-1  border-b-2">Register</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                  href="#pablo"
+                >
+                  <i className=" text-lg leading-lg text-black opacity-75"></i>
+
+                  <span className="ml-2 p-1 px-2  rounded-lg border-2 text-black">
+                    Sign in
+                  </span>
                 </a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-      <img src={Banner.src} className="max-h-96 w-full bg-cover" />
+      <img
+        src="https://storage-asset.msi.com/global/picture/image/feature/multimeda/keyboard/GK30/gk30-white-keyboard.jpg"
+        className="max-h-96 w-full bg-cover"
+      />
     </>
   );
 }

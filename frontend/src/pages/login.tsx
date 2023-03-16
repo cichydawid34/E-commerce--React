@@ -1,7 +1,23 @@
 import { Input } from "@chakra-ui/react";
+import { useState } from "react";
 import { text } from "stream/consumers";
 import Navbar from "../components/navbar";
 export default function Login() {
+  const [email, setEmail] = useState<string>("");
+  const [emailErrorMessage, setEmailErrorMessage] = useState<string>();
+  const [emailError, setEmailError] = useState<boolean>(false);
+
+  const validateEmail = () => {
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!regex.test(email)) {
+      setEmailErrorMessage("Invalid Email");
+      setEmailError(true);
+    } else {
+      setEmailErrorMessage(undefined);
+      setEmailError(false);
+    }
+  };
+
   return (
     <div className="grid md:grid-cols-2  text-black m-0 h-[100vh]">
       {/* Column 1 */}
@@ -25,8 +41,18 @@ export default function Login() {
               name="email"
               className="bg-white border-b-2"
               placeholder="email"
+              isInvalid={emailError}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                validateEmail();
+              }}
             />
           </div>
+          {emailError ? (
+            <p className="text-red-500 text-sm self-end mt-1">
+              {emailErrorMessage}
+            </p>
+          ) : null}
           <div className="flex flex-col">
             <label className="text-sm text-gray-500">Pasword: </label>
             <Input
