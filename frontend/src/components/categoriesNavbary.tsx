@@ -4,9 +4,9 @@ export default function CategoriesNavbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
   return (
     <>
-      <nav className="relative flex flex-wrap items-center justify-center px-8 py-1 bg-zinc-800">
-        <div className="container px-4 mx-auto flex flex-wrap items-center justify-center">
-          <div className="w-full relative flex justify-center lg:w-auto lg:static lg:block lg:justify-start">
+      <nav className="relative flex flex-wrap   px-12 py-1 w-[45%] m-auto  bg-white rounded-full shadow-lg top-[-25px] h-12">
+        <div className="container px-4 mx-auto flex flex-wrap ">
+          <div className="w-full relative flex lg:w-auto lg:static lg:block lg:justify-start">
             <button
               className="text-black cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"
@@ -22,10 +22,10 @@ export default function CategoriesNavbar() {
             }
             id="example-navbar-danger"
           >
-            <ul className="flex flex-col lg:flex-row list-none items-center justify-center w-full">
+            <ul className="flex flex-col lg:flex-row list-none  justify-between w-full">
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-xs   leading-snug text-white hover:opacity-75"
+                  className="px-3 py-2 flex items-center text-xs   leading-snug text-black hover:opacity-75"
                   href="#pablo"
                 >
                   <i className=" text-white opacity-75"></i>
@@ -34,16 +34,16 @@ export default function CategoriesNavbar() {
               </li>
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-xs   leading-snug text-white hover:opacity-75"
+                  className="px-3 py-2 flex items-center text-xs   leading-snug text-black hover:opacity-75 hover:underline "
                   href="#pablo"
                 >
-                  <i className="fab fa-pinterest text-md leading-lg text-white opacity-75"></i>
+                  <i className="fab fa-pinterest text-md leading-lg text-black opacity-75"></i>
                   <span className="ml-2">Keyboards</span>
                 </a>
               </li>
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-xs   leading-snug text-white hover:opacity-75"
+                  className="px-3 py-2 flex items-center text-xs   leading-snug text-black hover:opacity-75"
                   href="#pablo"
                 >
                   <i className=" text-white opacity-75"></i>
@@ -52,7 +52,7 @@ export default function CategoriesNavbar() {
               </li>
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-xs   leading-snug text-white hover:opacity-75"
+                  className="px-3 py-2 flex items-center text-xs   leading-snug text-black hover:opacity-75"
                   href="#pablo"
                 >
                   <i className=" text-white opacity-75"></i>

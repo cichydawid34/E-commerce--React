@@ -14,6 +14,10 @@ export default function Home() {
       <Provider store={store}>
         <ApiProvider api={productsApi}>
           <Navbar />
+          <img
+            src="https://storage-asset.msi.com/global/picture/image/feature/multimeda/keyboard/GK30/gk30-white-keyboard.jpg"
+            className="max-h-96  bg-cover  w-full m-auto"
+          />
           <CategoriesNavbar />
           <ProductsDetail />
         </ApiProvider>

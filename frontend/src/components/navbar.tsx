@@ -5,7 +5,7 @@ export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
   return (
     <>
-      <nav className="relative flex flex-wrap items-center justify-between px-8 py-1 bg-white">
+      <nav className="relative flex flex-wrap items-center justify-between px-8 py-1 bg-white shadow">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <a
@@ -33,7 +33,7 @@ export default function Navbar() {
               <li className="nav-item">
                 <a
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
-                  href="#pablo"
+                  href="/login"
                 >
                   <i className="fab fa-twitter text-lg leading-lg  text-black opacity-75"></i>
                   <span className="p-1 ">
@@ -43,21 +43,21 @@ export default function Navbar() {
               </li>
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
-                  href="#pablo"
+                  className="px-2 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                  href="/register"
                 >
-                  <i className=" text-lg leading-lg  text-black opacity-75"></i>
+                  <i className=" text-lg leading-lg text-black opacity-75"></i>
                   <span className="ml-2 p-1  border-b-2">Register</span>
                 </a>
               </li>
               <li className="nav-item">
                 <a
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
-                  href="#pablo"
+                  href="/login"
                 >
                   <i className=" text-lg leading-lg text-black opacity-75"></i>
 
-                  <span className="ml-2 p-1 px-2  rounded-lg border-2 text-black">
+                  <span className="ml-2 p-1 px-4  shadow-md rounded-full text-black">
                     Sign in
                   </span>
                 </a>
@@ -66,10 +66,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-      <img
-        src="https://storage-asset.msi.com/global/picture/image/feature/multimeda/keyboard/GK30/gk30-white-keyboard.jpg"
-        className="max-h-96 w-full bg-cover"
-      />
     </>
   );
 }
