@@ -4,7 +4,7 @@ export default function CategoriesNavbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
   return (
     <>
-      <nav className="relative flex flex-wrap   px-12 py-1 w-[45%] m-auto  bg-white rounded-full shadow-lg top-[-25px] h-12">
+      <nav className="relative flex px-12 py-1 xl:w-[45%] sm:w-[75%] w-full m-auto justify-center bg-white rounded-full shadow-lg top-[-25px] h-12">
         <div className="container px-4 mx-auto flex flex-wrap ">
           <div className="w-full relative flex lg:w-auto lg:static lg:block lg:justify-start">
             <button
@@ -25,7 +25,7 @@ export default function CategoriesNavbar() {
             <ul className="flex flex-col lg:flex-row list-none  justify-between w-full">
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-xs   leading-snug text-black hover:opacity-75"
+                  className="px-3 py-2 flex items-center text-xs leading-snug text-black hover:opacity-75"
                   href="#pablo"
                 >
                   <i className=" text-white opacity-75"></i>

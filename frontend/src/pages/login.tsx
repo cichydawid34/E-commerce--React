@@ -23,7 +23,7 @@ export default function Login() {
       {/* Column 1 */}
       <div className="bg-slate-500  w-full hidden md:block  ">
         <img
-          className="h-full bg-cover object-cover"
+          className="h-full bg-cover object-cover "
           src="https://wallpapers.com/images/hd/mountain-aesthetic-tjnpmbwoeh69s8lj.jpg"
         />
       </div>

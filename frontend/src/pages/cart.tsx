@@ -91,7 +91,7 @@ export default function Cart() {
                   <div className="flex jutify-center items-center">
                     <img
                       src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/512ZY9SCkxL._SL1191_.jpg"
-                      className="w-44"
+                      className="w-44 min-w-[10em]"
                     />
                     <div>
                       <h2 className="font-bold">Header of exapmle product</h2>

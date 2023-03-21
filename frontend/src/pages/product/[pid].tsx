@@ -6,29 +6,29 @@ export default function ProductDetail() {
       <Navbar />
       <div className="grid grid-cols-12 pt-12 gap-8 p-24">
         {/* Column 1 */}
-        <div className="flex flex-col col-span-2 w-[90%] mt-7 ">
+        <div className="flex flex-col lg:col-span-2 col-span-4  w-[90%] mt-7 gap-4 ">
           <img
             src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/512ZY9SCkxL._SL1191_.jpg"
-            className="rounded-lg"
+            className="rounded-lg hover:shadow-md p-1"
           />
           <img
             src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/512ZY9SCkxL._SL1191_.jpg"
-            className="rounded-lg"
+            className="rounded-lg hover:shadow-md p-1"
           />
           <img
             src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/512ZY9SCkxL._SL1191_.jpg"
-            className="rounded-lg"
+            className="rounded-lg hover:shadow-md p-1"
           />
         </div>
         {/* Column 2 */}
-        <div className="col-span-5 mt-7">
+        <div className="lg:col-span-5 mt-7 col-span-8">
           <img
             src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/512ZY9SCkxL._SL1191_.jpg"
             className="rounded-lg"
           />
         </div>
         {/* Column 3 */}
-        <div className="col-span-5  rounded-xl p-8 flex flex-col gap-2 ">
+        <div className="lg:col-span-5 col-span-12 rounded-xl p-8 flex flex-col gap-2 ">
           <h2 className="text-2xl font-bold">Title Exapmle product name</h2>
           <p className="text-zinc-500 text-sm">
             Brand: <span className="text-black"> Brand example</span>
