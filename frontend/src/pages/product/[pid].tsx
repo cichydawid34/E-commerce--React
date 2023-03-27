@@ -1,6 +1,8 @@
 import Navbar from "@/components/navbar";
-
+import IProduct from '../../interfaces/product'
 export default function ProductDetail() {
+
+
   return (
     <>
       <Navbar />

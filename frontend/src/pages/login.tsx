@@ -1,12 +1,21 @@
 import { Input } from "@chakra-ui/react";
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {setToken} from '../redux/userSlice'
+import type { RootState } from './store'
 import { text } from "stream/consumers";
 import Navbar from "../components/navbar";
 export default function Login() {
   const [email, setEmail] = useState<string>("");
   const [emailErrorMessage, setEmailErrorMessage] = useState<string>();
   const [emailError, setEmailError] = useState<boolean>(false);
+  const { token } = useSelector((state: RootState) => state.user);
 
+  const [password, setPassword] = useState<string>("");
+  const dispatch = useDispatch();
+
+  const tokenn = useSelector((state: RootState) => state.user)
   const validateEmail = () => {
     const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!regex.test(email)) {
@@ -15,6 +24,31 @@ export default function Login() {
     } else {
       setEmailErrorMessage(undefined);
       setEmailError(false);
+    }
+  };
+  useEffect(()=>{
+    console.log(token)
+  },[token])
+  const handleLogin = async (e:any) => {
+    e.preventDefault();
+    if (!emailError ) {
+      try { 
+        let returnToken = await axios.post("https://red-mountain-shop-backend.onrender.com/login", {
+          email: email,
+          password: password,
+        },{
+  headers: {
+     'Access-Control-Allow-Origin': '*',
+  }
+})
+        dispatch(setToken(returnToken.data))
+        
+      }
+      catch(error) {
+          console.log(error);
+        };
+    } else {
+      alert("Please enter a valid email and password.");
     }
   };
 
@@ -61,6 +95,9 @@ export default function Login() {
               name="password"
               placeholder="password"
               className="bg-white border-b-2"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
             <a
               className="text-sm self-end mt-1 hover:text-red-400"
@@ -69,7 +106,7 @@ export default function Login() {
               Don't have an account?
             </a>
           </div>
-          <button className="bg-black text-zinc-200 rounded-sm m-2 p-2 hover:bg-gray-800">
+          <button className="bg-black text-zinc-200 rounded-sm m-2 p-2 hover:bg-gray-800" onClick={handleLogin} >
             Sign in
           </button>
         </form>

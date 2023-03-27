@@ -16,6 +16,7 @@
     "@types/node": "18.14.6",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
+    "axios": "^1.3.4",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
     "framer-motion": "^10.3.2",
@@ -30,5 +31,6 @@
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7"
-  }
+  },
+  "proxy": "https://red-mountain-shop-backend.onrender.com/"
 }

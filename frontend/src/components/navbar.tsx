@@ -1,8 +1,13 @@
 import { useState } from "react";
 import Banner from "../images/banner.jpg";
 import { BsFillBagFill } from "react-icons/bs";
+import { useSelector } from "react-redux";
+import { RootState } from "@reduxjs/toolkit/dist/query/core/apiState";
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [token, setToken] = useState<string>(useSelector((state:any) => state.user));
+  console.log("xd")
+  console.log(token)
   return (
     <>
       <nav className="relative flex flex-wrap items-center justify-between px-8 py-1 bg-white shadow">

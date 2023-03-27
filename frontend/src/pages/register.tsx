@@ -1,4 +1,5 @@
 import { Input } from "@chakra-ui/react";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { text } from "stream/consumers";
 import Navbar from "../components/navbar";
@@ -13,7 +14,6 @@ export default function Login() {
   const [passwordErrorMessage, setPasswordErrorMessage] = useState<string>();
   const [passwordError, setPasswordError] = useState<boolean>(false);
   const validateEmail = () => {
-    console.log("xdf");
     const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!regex.test(email)) {
       setEmailErrorMessage("Invalid Email");
@@ -23,6 +23,20 @@ export default function Login() {
       setEmailError(false);
     }
   };
+
+  const handleRegister=async(e:any)=>{
+    e.preventDefault(); 
+    if(!emailError&&!passwordError&&password.length>0&&email.length>0){
+      
+      let User= await axios.post('./user',{
+        email:email,
+        password:password
+      })
+      
+    }
+    alert("error");
+
+  }
 
   const validatePassword = () => {
     const regex = /^(?=.*[A-Za-z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{7,}$/;
@@ -103,7 +117,7 @@ export default function Login() {
               Already have an account?
             </a>
           </div>
-          <button className="bg-black text-zinc-200 rounded-sm m-2 p-2 hover:bg-gray-800">
+          <button className="bg-black text-zinc-200 rounded-sm m-2 p-2 hover:bg-white hover:text-black hover:p-[-2px] hover:border-2 box-content" onClick={handleRegister}>
             Sign up
           </button>
         </form>
