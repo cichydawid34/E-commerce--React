@@ -1,8 +1,11 @@
 import { Input } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
+
 import { text } from "stream/consumers";
 import Navbar from "../components/navbar";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 export default function Login() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -27,15 +30,38 @@ export default function Login() {
   const handleRegister=async(e:any)=>{
     e.preventDefault(); 
     if(!emailError&&!passwordError&&password.length>0&&email.length>0){
-      
-      let User= await axios.post('./user',{
-        email:email,
-        password:password
-      })
-      
+      try {
+        await toast.promise(
+          axios.post("https://red-mountain-shop-backend.onrender.com/register", {
+            email: email,
+            password: password,
+          }),
+          {
+            pending: "Creating an account...",
+            success: {
+              render(){
+                return `Succesfully created an account`
+              },
+              // other options
+              icon: "🟢",
+            },
+            
+          }
+        );
+      } catch (error: any) {
+        console.log(error.response.data);
+        toast.error(` ${error.response.data}`, {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     }
-    alert("error");
-
   }
 
   const validatePassword = () => {
@@ -51,6 +77,8 @@ export default function Login() {
       setPasswordError(false);
     }
   };
+
+  
 
   return (
     <div className="grid md:grid-cols-2  text-black m-0 h-[100vh]">
@@ -117,10 +145,12 @@ export default function Login() {
               Already have an account?
             </a>
           </div>
-          <button className="bg-black text-zinc-200 rounded-sm m-2 p-2 hover:bg-white hover:text-black hover:p-[-2px] hover:border-2 box-content" onClick={handleRegister}>
-            Sign up
+          <button className="bg-black text-zinc-200 rounded-sm m-2 p-2 hover:bg-white hover:text-black hover:p-[6px] hover:border-2 hover:box-sizing" onClick={handleRegister}>
+            Register
           </button>
         </form>
+       
+        <ToastContainer />
       </div>
     </div>
   );
