@@ -52,7 +52,7 @@ export default function Login() {
             success: "Logged in successfully!",
           }
         );
-       let set:any =await dispatch(setToken(returnToken.data));
+       dispatch(setToken(returnToken.data));
        router.push('/');
        
       }
